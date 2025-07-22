@@ -1,8 +1,11 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { GET } from "@/app/api/aic/route";
 import { NextRequest } from "next/server";
 
 describe("GET /api/aic", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
   it("should return with a 200 status", async () => {
     const url = new URL("http://localhost/api/aic?limit=2&page=1");
     const req = new NextRequest(url);

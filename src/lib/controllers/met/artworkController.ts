@@ -7,7 +7,7 @@ export async function getMetArtworks(req: NextRequest): Promise<NextResponse> {
   const id = url.searchParams.get("id");
 
   if (!id) {
-    return errorResponse("Invalid ID.", 400);
+    return errorResponse("Invalid ID", 400);
   }
 
   try {

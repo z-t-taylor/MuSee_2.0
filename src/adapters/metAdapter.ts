@@ -2,7 +2,7 @@ import { Artwork } from "@/types/artworkType";
 import { SingleMetArtworkResponse } from "@/types/metTypes";
 
 export const metAdapter = (item: SingleMetArtworkResponse): Artwork => ({
-  id: item.objectId.toString(),
+  id: item.objectID.toString(),
   title: item.title,
   artist: item.artistDisplayName,
   creationDate: item.objectDate,

@@ -3,7 +3,7 @@ export interface MetBaseResponse {
 }
 
 export interface SingleMetArtworkResponse {
-  objectId: number;
+  objectID: number;
   isPublicDomain: boolean;
   primaryImage: string;
   primaryImageSmall: string;
