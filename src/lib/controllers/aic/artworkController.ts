@@ -17,7 +17,7 @@ export async function getAicArtworks(req: NextRequest) {
 
     const { data, pagination } = await fetchAicArtworks(limit, page);
     return NextResponse.json({ data, pagination }, { status: 200 });
-  } catch (error) {
+  } catch (err) {
     return errorResponse("Internal server error", 500);
   }
 }

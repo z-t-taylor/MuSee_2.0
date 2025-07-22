@@ -1,7 +1,6 @@
 import { aicAdapter } from "@/adapters/aicAdapter";
 import { AicArtworkListResponse } from "@/types/aicTypes";
 import { Artwork } from "@/types/artworkType";
-import { NextRequest, NextResponse } from "next/server";
 
 const AIC_BASE_URL = "https://api.artic.edu/api/v1/artworks";
 
