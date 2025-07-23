@@ -1,19 +1,23 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { GET } from "@/app/api/met/route";
 import { NextRequest } from "next/server";
 
 describe("GET /api/met", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
   it("should return a status 200", async () => {
     const id = "437133";
     const url = new URL(`http://localhost/api/met?id=${id}`);
     const req = new NextRequest(url);
     const res = await GET(req);
+
     expect(res.status).toBe(200);
 
     const data = await res.json();
-    expect(data.objectID).toBeDefined();
-    expect(data.objectID).toBe(Number(id));
-    expect(data.artistDisplayName).toBe("Claude Monet");
+    expect(data).toBeDefined();
+    expect(data.id).toBe("437133");
+    expect(data.artist).toBe("Claude Monet");
   });
   it("should return a status 400 if no id is defined", async () => {
     const url = "http://localhost/api/met";
