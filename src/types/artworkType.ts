@@ -8,6 +8,7 @@ export interface Artwork {
     altText?: string;
     thumbnail?: string;
   };
+  isPublicDomain: boolean;
   medium?: string;
   origin?: string;
   styles?: string | string[];
