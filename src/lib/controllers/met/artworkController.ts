@@ -12,6 +12,11 @@ export async function getMetArtworks(req: NextRequest): Promise<NextResponse> {
 
   try {
     const data = await fetchMetArtworks(id);
+
+    if (!data) {
+      return NextResponse.json({ error: "Artwork not found" }, { status: 404 });
+    }
+
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
     return errorResponse("Internal server error", 500);
