@@ -11,6 +11,7 @@ export const metAdapter = (item: SingleMetArtworkResponse): Artwork => ({
     altText: `${item.title} by ${item.artistDisplayName}`,
     thumbnail: item.primaryImageSmall,
   },
+  isPublicDomain: item.isPublicDomain,
   medium: item.medium,
   origin: item.culture || item.country || item.artistNationality,
   styles: item.classification,

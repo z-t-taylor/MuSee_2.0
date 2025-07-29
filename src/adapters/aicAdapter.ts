@@ -13,6 +13,7 @@ export const aicAdapter = (
     altText: item.thumbnail?.alt_text ?? item.title,
     thumbnail: item.thumbnail?.lqip,
   },
+  isPublicDomain: item.is_public_domain,
   medium: item.medium_display,
   origin: item.place_of_origin,
   styles:
