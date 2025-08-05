@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MuSee 🖼️
+
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+MuSee is a virtual exhibition builder that lets you explore and curate artwork from two of the world’s leading museum collections, The Metropolitan Museum of Art and Art Institute of Chicago. Discover, collect, and organise pieces into your own themed exhibitions, all from your browser.
+
+- [You can find the live version of MuSee here.](https://musee-gules.vercel.app/)
+- Or follow the installation instructions below to see the code in action.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+## Features
+
+- **Artwork Discovery**
+  - Browse thousands of artworks from The Met and Art Institute Chicago
+  - Explore in-depth artwork profiles with artist bios, medium details, and cultural significance
+- **Exhibition Curation**
+  - Create and manage custom exhibitions
+  - Save and organise artwork selections
+  - Filter through and search for artworks or themes
+- **Responsive and Accessible Design**
+  - Optimised for desktop and mobile viewing
+- **Museum Integration**
+  - Direct access to museum collection information
+  - Public API integration with:
+    - [Art Institute of Chicago API](https://www.artic.edu/open-access)
+    - [The Met Collection API](https://metmuseum.github.io)
+
+## Tech Stack
+
+**Frontend**
+
+- ⚛️ React 18 + TypeScript
+- 🌐 [NextJS](https://nextjs.org)
+- 🎨 Tailwind CSS
+- 🧱 Material UI
+
+**Testing & Tooling**
+
+- Jest
+- Vitest
+- ESLint
+- TypeScript
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js v18+
+- npm or yarn
+
+### Installation
 
 ```bash
+git clone https://github.com/z-t-taylor/MuSee_2.0.git
+cd MuSee
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Testing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test:vitest
+```
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Acknowledgements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Art Institute of Chicago](https://www.artic.edu/open-access) for their open access API
+- [The Metropolitan Museum of Art](https://metmuseum.github.io) for their public collection data
+- React community for amazing open-source tools
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Created by [Zoe Taylor](https://github.com/z-t-taylor)
