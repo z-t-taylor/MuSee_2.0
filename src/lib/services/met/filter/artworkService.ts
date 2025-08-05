@@ -1,17 +1,26 @@
-import { MetBaseResponse, SingleMetArtworkResponse } from "@/types/metTypes";
-import { Artwork } from "@/types/artworkType";
 import { metAdapter } from "@/adapters/metAdapter";
+import { Artwork } from "@/types/artworkType";
+import { MetBaseResponse, SingleMetArtworkResponse } from "@/types/metTypes";
 
 const MET_BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1";
 
-export async function fetchSearchMetArtworks(query: string) {
+export async function fetchFilterMetArtworks(filter: string) {
+  const categoryMap: Record<string, string> = {
+    all: "",
+    paintings: "paintings",
+    photographs: "photographs",
+    sculpture: "sculpture",
+    prints: "prints",
+    ceramics: "ceramics",
+    furniture: "furniture",
+  };
+  const category = categoryMap[filter] ?? "";
+
   try {
-    const res = await fetch(`${MET_BASE_URL}/search?&q=${query}`);
+    const res = await fetch(`${MET_BASE_URL}/search?&q=${category}`);
     const data: MetBaseResponse = await res.json();
 
-    if (!data.objectIDs?.length) {
-      return [];
-    }
+    if (!data.objectIDs?.length) return [];
 
     const batchSize = 10;
     const validArtworks: Artwork[] = [];
