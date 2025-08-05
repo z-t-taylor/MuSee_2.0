@@ -1,8 +1,6 @@
 import { MetBaseResponse, SingleMetArtworkResponse } from "@/types/metTypes";
-import { errorResponse } from "@/lib/utils/errorResponse";
 import { Artwork } from "@/types/artworkType";
 import { metAdapter } from "@/adapters/metAdapter";
-import { NextResponse } from "next/server";
 
 const MET_BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1";
 
