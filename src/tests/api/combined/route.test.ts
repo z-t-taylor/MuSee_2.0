@@ -3,7 +3,7 @@ import { Artwork } from "@/types/artworkType";
 import { NextRequest, NextResponse } from "next/server";
 import { GET } from "@/app/api/combined/route";
 
-describe("api/combined", () => {
+describe("GET api/combined", () => {
   afterEach(() => {
     vi.restoreAllMocks();
   });

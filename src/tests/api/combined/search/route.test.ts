@@ -3,7 +3,7 @@ import { GET } from "@/app/api/combined/search/route";
 import { Artwork } from "@/types/artworkType";
 import { NextRequest, NextResponse } from "next/server";
 
-describe("api/combined/search", () => {
+describe("GET api/combined/search", () => {
   afterEach(() => {
     vi.resetAllMocks();
   });
