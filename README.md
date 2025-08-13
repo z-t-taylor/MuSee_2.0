@@ -4,7 +4,7 @@
 
 MuSee is a virtual exhibition builder that lets you explore and curate artwork from two of the world’s leading museum collections, The Metropolitan Museum of Art and Art Institute of Chicago. Discover, collect, and organise pieces into your own themed exhibitions, all from your browser.
 
-- [You can find the live version of MuSee here.](https://musee-gules.vercel.app/)
+- [You can find the original live version of MuSee here while I'm still working on the 2.0 iteration.](https://musee-gules.vercel.app/)
 - Or follow the installation instructions below to see the code in action.
 
 ## Table of Contents
