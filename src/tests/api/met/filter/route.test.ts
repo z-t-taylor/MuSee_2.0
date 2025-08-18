@@ -49,6 +49,9 @@ describe("GET api/met/filter", () => {
     const data = await res.json();
 
     expect(data).toEqual(mockData);
+    expect(data[0].classification.toLowerCase()).toEqual(filter);
+    expect(data[0]).toHaveProperty("id");
+    expect(data[0].museumSource).toEqual("met");
   });
   it("should return a status 400  if an invalid query is requested", async () => {
     const filter = "";

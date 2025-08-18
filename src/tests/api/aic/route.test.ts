@@ -7,7 +7,7 @@ import { Artwork } from "@/types/artworkType";
 
 describe("GET /api/aic", () => {
   afterEach(() => {
-    vi.resetAllMocks();
+    vi.restoreAllMocks();
   });
   it("should return with a 200 status", async () => {
     const mockData: Artwork[] = [

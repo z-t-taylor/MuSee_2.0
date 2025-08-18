@@ -2,19 +2,19 @@ import { NextRequest, NextResponse } from "next/server";
 import { errorResponse } from "@/lib/utils/errorResponse";
 import { fetchMetArtworks } from "@/lib/services/met/artworkService";
 
-export async function getMetArtworks(req: NextRequest): Promise<NextResponse> {
-  const url = new URL(req.url);
-  const id = url.searchParams.get("id");
-
-  if (!id) {
-    return errorResponse("Invalid ID", 400);
-  }
-
+export async function getMetArtworks(req: NextRequest) {
   try {
+    const url = new URL(req.url);
+    const id = url.searchParams.get("id");
+
+    if (!id) {
+      return errorResponse("Invalid ID", 400);
+    }
+
     const data = await fetchMetArtworks(id);
 
-    if (!data) {
-      return NextResponse.json({ error: "Artwork not found" }, { status: 404 });
+    if (!data.length) {
+      return errorResponse("No artworks found", 404);
     }
 
     return NextResponse.json(data, { status: 200 });
