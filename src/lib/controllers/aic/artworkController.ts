@@ -9,14 +9,14 @@ export async function getAicArtworks(req: NextRequest) {
     const page = Number(searchParams.get("page") ?? 1);
 
     if (isNaN(limit) || isNaN(page)) {
-      return errorResponse(
-        "Invalid parameters received. 'limit' and 'page' must numbers.",
-        400
-      );
+      return errorResponse("Invalid parameters received", 400);
     }
 
-    const { data, pagination } = await fetchAicArtworks(limit, page);
-    return NextResponse.json({ data, pagination }, { status: 200 });
+    const { data } = await fetchAicArtworks(limit, page);
+
+    if (!data.length) return errorResponse("No artworks found", 404);
+
+    return NextResponse.json(data, { status: 200 });
   } catch (err) {
     return errorResponse("Internal server error", 500);
   }

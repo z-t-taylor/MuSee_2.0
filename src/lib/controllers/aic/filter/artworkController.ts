@@ -14,7 +14,7 @@ export async function filterAicArtworks(req: NextRequest) {
   try {
     const { data } = await fetchFilterAicArtworks(filter, limit, page);
 
-    if (data.length === 0) {
+    if (!data.length) {
       return errorResponse("No artworks found", 404);
     }
 

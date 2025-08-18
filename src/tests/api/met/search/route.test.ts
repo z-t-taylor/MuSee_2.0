@@ -46,6 +46,8 @@ describe("GET /api/met/search", () => {
 
     const data = await res.json();
     expect(data).toEqual(mockData);
+    expect(data[0]).toHaveProperty("id");
+    expect(data[0].museumSource).toEqual("met");
   });
   it("should return with a status 400 if an invalid query is requested", async () => {
     const query = "";
@@ -54,6 +56,9 @@ describe("GET /api/met/search", () => {
     const req = new NextRequest(url);
     const res = await GET(req);
     expect(res.status).toBe(400);
+
+    const body = await res.json();
+    expect(body.error).toBe("Invalid search query");
   });
   it("should return with a status 404 if no valid queries are found", async () => {
     vi.spyOn(artworkService, "fetchSearchMetArtworks").mockResolvedValue([]);
@@ -64,6 +69,9 @@ describe("GET /api/met/search", () => {
     const req = new NextRequest(url);
     const res = await GET(req);
     expect(res.status).toBe(404);
+
+    const body = await res.json();
+    expect(body.error).toBe("No artworks found");
   });
   it("should return with a 500 status if fetch throws an error", async () => {
     vi.stubGlobal(

@@ -18,7 +18,7 @@ export async function searchMetArtworks(req: NextRequest) {
     }
 
     if (Array.isArray(data) && data.length === 0) {
-      return errorResponse("No valid artworks found", 404);
+      return errorResponse("No artworks found", 404);
     }
 
     return NextResponse.json(data, { status: 200 });
