@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Navbar } from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "MuSee",
@@ -12,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-white text-black">{children}</body>
+    <html lang="en" data-google-analytics-opt-out="">
+      <body className="flex">
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
