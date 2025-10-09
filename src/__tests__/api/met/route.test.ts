@@ -37,34 +37,32 @@ describe("GET /api/met", () => {
     ];
     vi.spyOn(artworkService, "fetchMetArtworks").mockResolvedValue(mockData);
 
-    const id = "436965";
-    const url = new URL(`http://localhost/api/met?id=${id}`);
+    const url = new URL("http://localhost/api/met?q=painting&limit=1");
     const req = new NextRequest(url);
     const res = await GET(req);
 
     expect(res.status).toBe(200);
 
-    const data = await res.json();
+    const { data } = await res.json();
 
     expect(data).toBeDefined();
     expect(data[0].id).toBe("436965");
     expect(data[0].artist).toBe("Edouard Manet");
     expect(data[0].isPublicDomain).toEqual(true);
   });
-  it("should return a status 400 if no id is defined", async () => {
-    const url = "http://localhost/api/met?id=";
+  it("should return a status 400 if no q is provided", async () => {
+    const url = "http://localhost/api/met?q";
     const req = new NextRequest(url);
     const res = await GET(req);
     expect(res.status).toBe(400);
 
     const data = await res.json();
-    expect(data.error).toBe("Invalid ID");
+    expect(data.error).toBe("No artworks found");
   });
   it("should return a status 404 if no artworks are found", async () => {
     vi.spyOn(artworkService, "fetchMetArtworks").mockResolvedValue([]);
 
-    const id = "675432743287643298742638461";
-    const url = "http://localhost/api/met?id=${id}";
+    const url = "http://localhost/api/met?q=jfjdghfd&limit=1";
     const req = new NextRequest(url);
     const res = await GET(req);
     expect(res.status).toBe(404);
@@ -80,8 +78,9 @@ describe("GET /api/met", () => {
       })
     );
 
-    const id = "437133";
-    const req = new NextRequest(new URL(`http://localhost/api/met?id=${id}`));
+    const req = new NextRequest(
+      new URL("http://localhost/api/met?q=painting&limit=1")
+    );
     const res = await GET(req);
     expect(res.status).toBe(500);
 

@@ -65,7 +65,7 @@ describe("GET /api/aic", () => {
     const res = await GET(req);
     expect(res.status).toBe(200);
 
-    const data = await res.json();
+    const { data } = await res.json();
     expect(data).toBeDefined();
     expect(data).toEqual(mockData);
     expect(data.length).toBeGreaterThan(0);

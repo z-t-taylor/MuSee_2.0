@@ -16,7 +16,7 @@ export async function getAicArtworks(req: NextRequest) {
 
     if (!data.length) return errorResponse("No artworks found", 404);
 
-    return NextResponse.json(data, { status: 200 });
+    return NextResponse.json({ data }, { status: 200 });
   } catch (err) {
     return errorResponse("Internal server error", 500);
   }
