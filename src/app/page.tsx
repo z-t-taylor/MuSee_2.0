@@ -1,9 +1,22 @@
-import Image from "next/image";
+import ArtworkPage from "./art/page";
+import { Micro_5 } from "next/font/google";
+
+const micro5Font = Micro_5({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start"></main>
-    </div>
+    <>
+      <div className="flex md:hidden justify-center">
+        <h1
+          className={`mx-4 my-3 text-[#2d1707] ${micro5Font.className} text-[4rem]`}
+        >
+          MuSee
+        </h1>
+      </div>
+      <ArtworkPage />
+    </>
   );
 }
