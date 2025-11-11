@@ -40,7 +40,9 @@ export async function fetchSearchAicArtworks(
       artwork.image_id && artwork.thumbnail && artwork.is_public_domain
   );
 
-  const transformed = filtered.map(aicAdapter);
+  const transformed = filtered
+    .map(aicAdapter)
+    .filter((artwork): artwork is Artwork => artwork !== null);
 
   return {
     data: transformed,
