@@ -78,7 +78,7 @@ export const Navbar = () => {
             <Link
               key={href}
               href={href}
-              className={`p-4 ${isActive ? "font-bold text-[#2d1707]" : ""}`}
+              className={`p-4 ${isActive ? "font-bold text-[#2d1707] " : ""}`}
               aria-label={label}
             >
               {icon}
