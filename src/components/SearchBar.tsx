@@ -10,7 +10,7 @@ interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   onSearch,
-  placeholder = "Search",
+  placeholder = "Search..",
 }) => {
   const [search, setSearch] = useState("");
 
@@ -25,7 +25,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="w-full">
+      <form onSubmit={handleSubmit} className="my-4 mx-4">
         <div>
           <input
             type="text"
@@ -33,7 +33,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={placeholder}
-            className="p-2 bg-[#F5A76B] text-black rounded-xl md:rounded-[2vw] w-full"
+            className="py-2 px-10 bg-[#e29f6c] text-[#2d1707] rounded-xl md:rounded-[2vw] w-full"
           />
           {search && (
             <button
@@ -47,7 +47,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           )}
           <button
             type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black px-3 py-1 text-sm rounded-lg md:rounded-[1vw]"
+            className="absolute top-9 right-4 -translate-y-1/2 transform px-3 py-1 text-sm"
           >
             <SearchSharpIcon />
           </button>

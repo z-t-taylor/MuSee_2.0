@@ -16,14 +16,11 @@ export async function getAllSearchArtworks(req: NextRequest) {
     }
 
     const [aicSearchData, metSearchData] = await Promise.all([
-      aicSearchRes.ok ? aicSearchRes.json() : Promise.resolve({ data: [] }),
-      metSearchRes.ok ? metSearchRes.json() : Promise.resolve({ data: [] }),
+      aicSearchRes.json(),
+      metSearchRes.json(),
     ]);
 
-    const data = await fetchAllSearchArtworks([
-      aicSearchData.data,
-      metSearchData.data,
-    ]);
+    const data = await fetchAllSearchArtworks([aicSearchData, metSearchData]);
 
     if (!data.length) return errorResponse("No artworks found", 404);
 
