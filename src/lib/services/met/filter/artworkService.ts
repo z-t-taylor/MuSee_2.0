@@ -7,7 +7,7 @@ const MET_BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1";
 export async function fetchFilterMetArtworks(filter: string) {
   const categoryMap: Record<string, string> = {
     all: "",
-    paintings: "paintings",
+    paintings: "oil on canvas",
     photographs: "photographs",
     sculpture: "sculpture",
     prints: "prints",

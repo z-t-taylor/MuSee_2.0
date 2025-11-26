@@ -16,14 +16,11 @@ export async function getAllFilterArtworks(req: NextRequest) {
     }
 
     const [aicFilterData, metFilterData] = await Promise.all([
-      aicFilterRes.ok ? aicFilterRes.json() : Promise.resolve({ data: [] }),
-      metFilterRes.ok ? metFilterRes.json() : Promise.resolve({ data: [] }),
+      aicFilterRes.json(),
+      metFilterRes.json(),
     ]);
 
-    const data = await fetchAllFilterArtworks([
-      aicFilterData.data,
-      metFilterData.data,
-    ]);
+    const data = await fetchAllFilterArtworks([aicFilterData, metFilterData]);
 
     if (!data.length) return errorResponse("No artworks found", 404);
 
