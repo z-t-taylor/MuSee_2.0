@@ -14,7 +14,7 @@ export async function fetchFilterAicArtworks(
 }> {
   const categoryMap: Record<string, string> = {
     all: "",
-    paintings: "Painting",
+    paintings: "Oil on Canvas",
     photographs: "Photograph",
     sculpture: "Sculpture",
     prints: "Print",
@@ -52,7 +52,9 @@ export async function fetchFilterAicArtworks(
       artwork.image_id && artwork.thumbnail && artwork.is_public_domain
   );
 
-  const transformed = filtered.map(aicAdapter);
+  const transformed = filtered
+    .map(aicAdapter)
+    .filter((artwork): artwork is Artwork => artwork !== null);
 
   return {
     data: transformed,

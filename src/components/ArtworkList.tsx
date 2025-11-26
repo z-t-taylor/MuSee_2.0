@@ -4,19 +4,25 @@ import { useEffect, useState } from "react";
 import { MasonryGrid } from "@/components/MasonryGrid";
 import { Artwork } from "@/types/artworkType";
 import { SearchBar } from "./SearchBar";
+import { FilterArtworks, FilterType } from "./FilterArtworks";
 
 export const ArtworkList = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filterTerm, setFilterTerm] = useState<FilterType>("all");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchArtworks = async (search?: string) => {
+  const fetchArtworks = async (search?: string, filter?: FilterType) => {
     try {
       setLoading(true);
       setError(null);
 
       let url = "/api/combined?limit=20";
+
+      if (filter && filter !== "all") {
+        url = `/api/combined/filter?q=${encodeURIComponent(filter)}`;
+      }
 
       if (search) {
         url = `/api/combined/search?q=${encodeURIComponent(search)}`;
@@ -35,8 +41,8 @@ export const ArtworkList = () => {
   };
 
   useEffect(() => {
-    fetchArtworks(searchTerm);
-  }, [searchTerm]);
+    fetchArtworks(searchTerm, filterTerm);
+  }, [searchTerm, filterTerm]);
 
   if (loading) return <div className="m-4">Loading...</div>;
   if (error) return <div className="m-4">{error}</div>;
@@ -44,6 +50,10 @@ export const ArtworkList = () => {
   return (
     <>
       <SearchBar onSearch={setSearchTerm} placeholder="Search artworks..." />
+      <FilterArtworks
+        currentFilter={filterTerm}
+        onFilterChange={setFilterTerm}
+      />
       <MasonryGrid
         items={artworks}
         getKey={(item) => item.id}
