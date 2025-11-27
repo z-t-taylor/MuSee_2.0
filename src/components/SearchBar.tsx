@@ -26,7 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <>
       <form onSubmit={handleSubmit} className="my-4 mx-4">
-        <div>
+        <div className="relative">
           <input
             type="text"
             name="search-bar"
@@ -40,14 +40,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               type="button"
               onClick={handleClear}
               aria-label="Clear search"
-              className="absolute right-16 top-1/2 transform -translate-y-1/2 text-black-75"
+              className="absolute right-12 top-1/2 transform -translate-y-1/2 text-black-75"
             >
               X
             </button>
           )}
           <button
             type="submit"
-            className="absolute top-9 right-4 -translate-y-1/2 transform px-3 py-1 text-sm"
+            className="absolute top-1/2 right-2 -translate-y-1/2 transform px-3 py-1 text-sm"
           >
             <SearchSharpIcon />
           </button>

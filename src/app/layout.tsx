@@ -14,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-google-analytics-opt-out="">
-      <body className="flex">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className="md:flex flex-1 pb-20 md:pb-0">
         <Navbar />
         <main>{children}</main>
       </body>
