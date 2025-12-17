@@ -12,6 +12,5 @@ export interface UserExhibition {
 }
 
 export interface UserExhibitionArtwork extends Artwork {
-  note?: string;
   addedAt: Date | string;
 }
