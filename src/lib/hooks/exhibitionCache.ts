@@ -5,7 +5,6 @@ import {
   UserExhibition,
   UserExhibitionArtwork,
 } from "@/types/userExhibitionTypes";
-import { generateSlug } from "../utils/generateSlug";
 import { generateUniqueSlug } from "../utils/generateUniqueSlug";
 
 interface ExhibitionCache {
